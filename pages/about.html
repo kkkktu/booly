@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookly | Giới thiệu</title>
+    <meta name="description" content="Giới thiệu Bookly - cửa hàng sách trực tuyến mang đến tri thức và cảm hứng đọc sách cho mọi nhà.">
+    <meta name="view-transition" content="same-origin">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/bookbin-theme.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/fab.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="about-page">
+    <!-- Page Loader -->
+    <div id="page-loader" style="position:fixed;inset:0;background:#fffaf3;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.4s ease;">
+        <div style="text-align:center;">
+            <div style="width:44px;height:44px;border:4px solid #e8d5b0;border-top-color:#8B5E3C;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 12px;"></div>
+            <div style="font-family:'Playfair Display',serif;color:#8B5E3C;font-size:1.1rem;font-weight:600;">Bookly.</div>
+        </div>
+    </div>
+    <script>window.addEventListener('load',()=>{const l=document.getElementById('page-loader');if(l){l.style.opacity='0';setTimeout(()=>l.style.display='none',400);}});</script>
+    <header class="header" id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Bookly.</a>
+            
+            <nav class="nav-links" id="nav-links">
+              <a href="index.html" class="nav-link">Trang chủ</a>
+              
+              <div class="nav-item-mega">
+                  <a href="category.html" class="nav-link" style="display:inline-flex;align-items:center;gap:4px;">Danh mục <i class="ph ph-caret-down" style="font-size:0.8rem"></i></a>
+                  <div class="mega-menu">
+                      <div class="mega-menu-inner">
+                          <div class="mega-menu-col">
+                              <h4>📚 Văn học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=tieu-thuyet">Tiểu thuyết</a></li>
+                                  <li><a href="category.html?type=truyen-ngan">Truyện ngắn</a></li>
+                                  <li><a href="category.html?type=tho-ca">Thơ ca</a></li>
+                                  <li><a href="category.html?type=van-hoc-nuoc-ngoai">Văn học nước ngoài</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>🔬 Khoa học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=vu-tru">Vũ trụ - Thiên văn</a></li>
+                                  <li><a href="category.html?type=sinh-hoc">Sinh học</a></li>
+                                  <li><a href="category.html?type=vat-ly">Vật lý</a></li>
+                                  <li><a href="category.html?type=khoa-hoc-thuong-thuc">Khoa học thường thức</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>💼 Kinh doanh</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=khoi-nghiep">Khởi nghiệp</a></li>
+                                  <li><a href="category.html?type=quan-tri">Quản trị - Lãnh đạo</a></li>
+                                  <li><a href="category.html?type=marketing">Marketing</a></li>
+                                  <li><a href="category.html?type=kinh-te-hoc">Kinh tế học</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>👶 Thiếu nhi & Khác</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=truyen-tranh">Truyện tranh</a></li>
+                                  <li><a href="category.html?type=ky-nang-song">Kỹ năng sống</a></li>
+                                  <li><a href="category.html?type=lich-su">Lịch sử thế giới</a></li>
+                                  <li><a href="category.html?type=tam-ly">Tâm lý - Self-help</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <a href="chinh-sach.html" class="nav-link">Chính sách</a>
+              <a href="about.html" class="nav-link active">Giới thiệu</a>
+          </nav>
+
+            <div class="nav-actions">
+                <div class="search-wrapper" id="search-wrapper">
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
+    <button class="search-btn" id="search-btn" aria-label="Tìm kiếm">
+      <i class="ph ph-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="search-dropdown" id="search-dropdown"></div>
+</div>
+                
+                <a href="wishlist.html" class="btn-icon" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge wishlist-badge" id="wishlist-badge">0</span>
+                </a>
+                
+                <div class="cart-wrapper">
+                    <a href="cart.html" class="btn-icon" aria-label="Giỏ hàng">
+                        <i class="ph ph-shopping-cart"></i>
+                        <span class="badge cart-badge" id="cart-badge">0</span>
+                    </a>
+                    <!-- Mini cart dropdown -->
+                    <div class="mini-cart" id="mini-cart">
+                        <p class="text-center" style="font-size: 0.9rem; color: #666;">Giỏ hàng đang trống.</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-icon" aria-label="Tài khoản">
+                    <i class="ph ph-user"></i>
+                </a>
+
+                <!-- Dark/Light Mode Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Chuyển giao diện"></button>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="mega-menu-overlay"></div>
+
+    <main>
+        <section class="about-hero section fade-in-up">
+            <div class="container about-hero-grid">
+                <div class="about-hero-copy">
+                    <div class="eyebrow">Giới thiệu Bookly</div>
+                    <h1 class="hero-title">Không gian sách dành cho mọi độc giả</h1>
+                    <p class="hero-subtitle">
+                        Bookly là website bán sách trực tuyến được xây dựng nhằm giúp người đọc dễ dàng tìm kiếm, lựa chọn và đặt mua những cuốn sách phù hợp với nhu cầu học tập, giải trí và phát triển bản thân.
+                    </p>
+                    <p class="about-lead">
+                        Dự án tập trung vào trải nghiệm mua sách đơn giản: danh mục rõ ràng, bộ lọc dễ dùng, giỏ hàng thuận tiện và thông tin sản phẩm minh bạch. Bookly mong muốn trở thành nơi kết nối độc giả với tri thức, cảm hứng và thói quen đọc sách mỗi ngày.
+                    </p>
+                    <div class="about-stats-grid">
+                        <div class="about-stat-card">
+                            <strong>10K+</strong>
+                            <span>Đầu sách đa dạng</span>
+                        </div>
+                        <div class="about-stat-card">
+                            <strong>50K+</strong>
+                            <span>Độc giả tin tưởng</span>
+                        </div>
+                    </div>
+                </div>
+</div>
+        </section>
+
+        <section class="section about-info-section">
+            <div class="container">
+                <div class="about-section-heading">
+                    <h2>Sứ mệnh của chúng tôi</h2>
+                    <p>Bookly hướng đến việc đưa sách đến gần hơn với người đọc thông qua một giao diện hiện đại, rõ ràng và dễ sử dụng.</p>
+                </div>
+
+                <div class="about-card-grid">
+                    <div class="about-info-card">
+                        <h3>Tầm nhìn</h3>
+                        <p>Trở thành nền tảng sách trực tuyến thân thiện, nơi người dùng có thể khám phá, lựa chọn và mua sách nhanh chóng.</p>
+                    </div>
+                    <div class="about-info-card">
+                        <h3>Giá trị cốt lõi</h3>
+                        <p>Chất lượng, đa dạng và tin cậy là những giá trị Bookly đặt lên hàng đầu khi xây dựng nội dung và trải nghiệm mua sắm.</p>
+                    </div>
+                    <div class="about-info-card">
+                        <h3>Cam kết</h3>
+                        <p>Bookly cung cấp thông tin sách minh bạch, hỗ trợ đặt hàng thuận tiện và luôn cải thiện dịch vụ từ phản hồi của khách hàng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about-benefit-section">
+            <div class="container about-benefit-grid">
+                <div>
+                    <h2>Những gì bạn nhận được</h2>
+                    <ul class="about-benefit-list">
+                        <li>Kho sách được chia theo nhóm như văn học, khoa học, kinh doanh, tâm lý và thiếu nhi.</li>
+                        <li>Giao diện mua sắm đơn giản, dễ thao tác trên máy tính và thiết bị di động.</li>
+                        <li>Hỗ trợ tìm kiếm, lọc theo giá, đánh giá, danh mục và danh sách yêu thích.</li>
+                        <li>Trang chi tiết sách hiển thị mô tả, tác giả, năm xuất bản, đánh giá và số lượng còn lại.</li>
+                        <li>Quy trình giỏ hàng và thanh toán rõ ràng, phù hợp với một website bán sách trực tuyến.</li>
+                    </ul>
+                </div>
+                <div class="about-trust-box">
+                    <h3>Bạn có thể tin tưởng</h3>
+                    <p>Bookly không chỉ là nơi mua sách mà còn là không gian gợi ý, kết nối và truyền cảm hứng đọc. Mỗi chức năng trong website đều được thiết kế để người dùng dễ tiếp cận sách hơn.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about-owner-section">
+            <div class="container">
+                <div class="about-section-heading">
+                    <h2>Những người chủ dự án</h2>
+                    <p>Bookly được xây dựng bởi nhóm sinh viên yêu thích công nghệ và mong muốn tạo ra một website bán sách trực quan, dễ dùng.</p>
+                </div>
+                <div class="about-owner-grid">
+                    <div class="about-owner-card"><span>01</span><h3>Cao Hữu Tú</h3><p>Thành viên dự án Bookly</p></div>
+                    <div class="about-owner-card"><span>02</span><h3>Đào Thái Sơn Minh</h3><p>Thành viên dự án Bookly</p></div>
+                    <div class="about-owner-card"><span>03</span><h3>Lưu Đình Đức Huy</h3><p>Thành viên dự án Bookly</p></div>
+                    <div class="about-owner-card"><span>04</span><h3>Hoàng Anh Quân</h3><p>Thành viên dự án Bookly</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="logo">Bookly.</div>
+                        <p>Điểm đến lý tưởng cho những người yêu sách. Chúng tôi cung cấp kho tàng tri thức vô tận.</p>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-title">Đường Dẫn Nhanh</div>
+                        <a href="index.html" class="footer-link">Trang chủ</a>
+                        <a href="category.html" class="footer-link">Danh mục</a>
+                        <a href="about.html" class="footer-link">Về chúng tôi</a>
+                    </div>
+                    <div class="footer-policy">
+                        <div class="footer-title">Chính Sách</div>
+                        <a href="chinh-sach.html#bao-mat" class="footer-link">Bảo mật</a>
+                        <a href="chinh-sach.html#doi-tra" class="footer-link">Đổi trả</a>
+                        <a href="chinh-sach.html#van-chuyen" class="footer-link">Vận chuyển</a>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="footer-title">Liên Hệ</div>
+                        <div class="footer-info">Email: hello@bookly.com</div>
+                        <div class="footer-info">Hotline: 1900 1234</div>
+                        <div class="footer-info">Địa chỉ: 47 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div>© 2025 Bookly. All rights reserved.</div>
+                    <div>Designed with ♥ in Việt Nam</div>
+                </div>
+            </div>
+        </footer>
+
+    
+
+    <script type="module" src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Bookly</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/bookbin-theme.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/features.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../css/fab.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Bookly.</a>
+            
+            <nav class="nav-links" id="nav-links">
+              <a href="index.html" class="nav-link">Trang chủ</a>
+              
+              <div class="nav-item-mega">
+                  <a href="category.html" class="nav-link" style="display:inline-flex;align-items:center;gap:4px;">Danh mục <i class="ph ph-caret-down" style="font-size:0.8rem"></i></a>
+                  <div class="mega-menu">
+                      <div class="mega-menu-inner">
+                          <div class="mega-menu-col">
+                              <h4>📚 Văn học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=tieu-thuyet">Tiểu thuyết</a></li>
+                                  <li><a href="category.html?type=truyen-ngan">Truyện ngắn</a></li>
+                                  <li><a href="category.html?type=tho-ca">Thơ ca</a></li>
+                                  <li><a href="category.html?type=van-hoc-nuoc-ngoai">Văn học nước ngoài</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>🔬 Khoa học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=vu-tru">Vũ trụ - Thiên văn</a></li>
+                                  <li><a href="category.html?type=sinh-hoc">Sinh học</a></li>
+                                  <li><a href="category.html?type=vat-ly">Vật lý</a></li>
+                                  <li><a href="category.html?type=khoa-hoc-thuong-thuc">Khoa học thường thức</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>💼 Kinh doanh</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=khoi-nghiep">Khởi nghiệp</a></li>
+                                  <li><a href="category.html?type=quan-tri">Quản trị - Lãnh đạo</a></li>
+                                  <li><a href="category.html?type=marketing">Marketing</a></li>
+                                  <li><a href="category.html?type=kinh-te-hoc">Kinh tế học</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>👶 Thiếu nhi & Khác</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=truyen-tranh">Truyện tranh</a></li>
+                                  <li><a href="category.html?type=ky-nang-song">Kỹ năng sống</a></li>
+                                  <li><a href="category.html?type=lich-su">Lịch sử thế giới</a></li>
+                                  <li><a href="category.html?type=tam-ly">Tâm lý - Self-help</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <a href="chinh-sach.html" class="nav-link">Chính sách</a>
+              <a href="about.html" class="nav-link">Giới thiệu</a>
+          </nav>
+
+            <div class="nav-actions">
+                <div class="search-wrapper" id="search-wrapper">
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
+    <button class="search-btn" id="search-btn" aria-label="Tìm kiếm">
+      <i class="ph ph-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="search-dropdown" id="search-dropdown"></div>
+</div>
+                
+                <a href="wishlist.html" class="btn-icon" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge wishlist-badge" id="wishlist-badge">0</span>
+                </a>
+                
+                <div class="cart-wrapper">
+                    <a href="cart.html" class="btn-icon" aria-label="Giỏ hàng">
+                        <i class="ph ph-shopping-cart"></i>
+                        <span class="badge cart-badge" id="cart-badge">0</span>
+                    </a>
+                    <!-- Mini cart dropdown -->
+                    <div class="mini-cart" id="mini-cart">
+                        <p class="text-center" style="font-size: 0.9rem; color: #666;">Giỏ hàng đang trống.</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-icon" aria-label="Tài khoản">
+                    <i class="ph ph-user"></i>
+                </a>
+
+                <!-- Dark/Light Mode Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Chuyển giao diện"></button>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="blog-hero">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px;">Bookly Blog</h1>
+            <p style="opacity: 0.7; max-width: 600px; margin: 0 auto;">Góc chia sẻ những kiến thức, review sách hay và những xu hướng đọc sách mới nhất.</p>
+        </div>
+    </div>
+
+    <main class="container blog-page-grid">
+        <div class="blog-main-content" id="blog-content">
+            <!-- Render via JS -->
+        </div>
+
+        <aside class="blog-sidebar">
+            <div class="blog-sidebar-card">
+                <h4><i class="ph ph-magnifying-glass"></i> Tìm kiếm bài viết</h4>
+                <div class="search-container" style="margin: 0; width: 100%;">
+                    <input type="text" class="search-input" placeholder="Nhập từ khóa..." style="padding: 10px 15px; width: 100%;">
+                </div>
+            </div>
+
+            <div class="blog-sidebar-card">
+                <h4><i class="ph ph-tag"></i> Chủ đề phổ biến</h4>
+                <div class="blog-tags">
+                    <span class="blog-tag" style="cursor: pointer;">Review Sách</span>
+                    <span class="blog-tag" style="cursor: pointer;">Kỹ năng sống</span>
+                    <span class="blog-tag" style="cursor: pointer;">Văn học</span>
+                    <span class="blog-tag" style="cursor: pointer;">Kinh doanh</span>
+                    <span class="blog-tag" style="cursor: pointer;">Self-help</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container" style="text-align: center; padding: 20px 0;">
+            <p>© 2025 Bookly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module">
+        import { blogPosts } from '../data/products.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('blog-content');
+            if(!container) return;
+
+            let html = '';
+            blogPosts.forEach(post => {
+                html += `
+                    <article class="blog-post-full">
+                        <img src="${post.cover}" alt="${post.title}" class="blog-post-img">
+                        <div class="blog-post-body">
+                            <div class="blog-tags" style="margin-bottom: 12px;">
+                                ${post.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}
+                            </div>
+                            <h2 style="font-size: 1.5rem; margin-bottom: 12px;">${post.title}</h2>
+                            <p style="opacity: 0.7; margin-bottom: 20px; line-height: 1.6;">${post.excerpt}</p>
+                            <div class="blog-meta" style="justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                                <div>
+                                    <i class="ph ph-user"></i> ${post.author} &nbsp;&bull;&nbsp;
+                                    <i class="ph ph-calendar"></i> ${post.date}
+                                </div>
+                                <div>
+                                    <i class="ph ph-clock"></i> ${post.readTime}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
+            container.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

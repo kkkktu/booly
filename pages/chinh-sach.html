@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chính Sách — Bookly</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/bookbin-theme.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/chinh-sach.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <meta name="view-transition" content="same-origin">
+    <link rel="stylesheet" href="../css/fab.css">
+</head>
+<body>
+
+  <!-- Header (copied from index.html) -->
+  <header class="header" id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Bookly.</a>
+            
+            <nav class="nav-links" id="nav-links">
+              <a href="index.html" class="nav-link">Trang chủ</a>
+              
+              <div class="nav-item-mega">
+                  <a href="category.html" class="nav-link" style="display:inline-flex;align-items:center;gap:4px;">Danh mục <i class="ph ph-caret-down" style="font-size:0.8rem"></i></a>
+                  <div class="mega-menu">
+                      <div class="mega-menu-inner">
+                          <div class="mega-menu-col">
+                              <h4>📚 Văn học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=tieu-thuyet">Tiểu thuyết</a></li>
+                                  <li><a href="category.html?type=truyen-ngan">Truyện ngắn</a></li>
+                                  <li><a href="category.html?type=tho-ca">Thơ ca</a></li>
+                                  <li><a href="category.html?type=van-hoc-nuoc-ngoai">Văn học nước ngoài</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>🔬 Khoa học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=vu-tru">Vũ trụ - Thiên văn</a></li>
+                                  <li><a href="category.html?type=sinh-hoc">Sinh học</a></li>
+                                  <li><a href="category.html?type=vat-ly">Vật lý</a></li>
+                                  <li><a href="category.html?type=khoa-hoc-thuong-thuc">Khoa học thường thức</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>💼 Kinh doanh</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=khoi-nghiep">Khởi nghiệp</a></li>
+                                  <li><a href="category.html?type=quan-tri">Quản trị - Lãnh đạo</a></li>
+                                  <li><a href="category.html?type=marketing">Marketing</a></li>
+                                  <li><a href="category.html?type=kinh-te-hoc">Kinh tế học</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>👶 Thiếu nhi & Khác</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=truyen-tranh">Truyện tranh</a></li>
+                                  <li><a href="category.html?type=ky-nang-song">Kỹ năng sống</a></li>
+                                  <li><a href="category.html?type=lich-su">Lịch sử thế giới</a></li>
+                                  <li><a href="category.html?type=tam-ly">Tâm lý - Self-help</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <a href="chinh-sach.html" class="nav-link active">Chính sách</a>
+              <a href="about.html" class="nav-link">Giới thiệu</a>
+          </nav>
+
+            <div class="nav-actions">
+                <div class="search-wrapper" id="search-wrapper">
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
+    <button class="search-btn" id="search-btn" aria-label="Tìm kiếm">
+      <i class="ph ph-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="search-dropdown" id="search-dropdown"></div>
+</div>
+                
+                <a href="wishlist.html" class="btn-icon" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge wishlist-badge" id="wishlist-badge">0</span>
+                </a>
+                
+                <div class="cart-wrapper">
+                    <a href="cart.html" class="btn-icon" aria-label="Giỏ hàng">
+                        <i class="ph ph-shopping-cart"></i>
+                        <span class="badge cart-badge" id="cart-badge">0</span>
+                    </a>
+                    <!-- Mini cart dropdown -->
+                    <div class="mini-cart" id="mini-cart">
+                        <p class="text-center" style="font-size: 0.9rem; color: #666;">Giỏ hàng đang trống.</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-icon" aria-label="Tài khoản">
+                    <i class="ph ph-user"></i>
+                </a>
+
+                <!-- Dark/Light Mode Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Chuyển giao diện"></button>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+  <div class="mega-menu-overlay"></div>
+
+  <main>
+    <!-- Page header -->
+    <section class="policy-header">
+      <div class="container">
+<h1>Chính Sách</h1>
+        <p class="policy-sub">Tất cả những điều bạn cần biết khi mua sách tại Bookly</p>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <nav class="policy-tabs" role="tablist">
+      <div class="policy-tab" data-target="#bao-mat" role="tab">Bảo Mật</div>
+      <div class="policy-tab" data-target="#doi-tra" role="tab">Đổi Trả</div>
+      <div class="policy-tab" data-target="#van-chuyen" role="tab">Vận Chuyển</div>
+      <div class="policy-tab" data-target="#thanh-toan" role="tab">Thanh Toán</div>
+      <div class="policy-tab" data-target="#dieu-khoan" role="tab">Điều Khoản</div>
+    </nav>
+
+    <!-- Content -->
+    <section class="policy-content">
+      <article id="bao-mat" class="policy-section">
+        <h2>Chính Sách Bảo Mật</h2>
+        <div class="policy-updated">Cập nhật lần cuối: 01/01/2025</div>
+
+        <h3>1. Thông tin chúng tôi thu thập</h3>
+        <p>Bookly thu thập các thông tin cần thiết khi bạn đăng ký tài khoản hoặc thực hiện mua hàng, bao gồm: họ tên, địa chỉ email, số điện thoại và địa chỉ giao hàng.</p>
+
+        <h3>2. Mục đích sử dụng thông tin</h3>
+        <ul>
+          <li>Xử lý đơn hàng và giao sách đến đúng địa chỉ</li>
+          <li>Gửi thông báo trạng thái đơn hàng qua email hoặc SMS</li>
+          <li>Cải thiện trải nghiệm mua sách của bạn</li>
+          <li>Gửi thông tin khuyến mãi (nếu bạn đồng ý nhận)</li>
+        </ul>
+
+        <div class="policy-highlight">🔒 Bookly cam kết không bán, trao đổi hoặc chuyển giao thông tin cá nhân của bạn cho bên thứ ba vì bất kỳ mục đích thương mại nào.</div>
+
+        <h3>3. Bảo vệ thông tin</h3>
+        <p>Dữ liệu được mã hóa SSL và lưu trữ trên máy chủ bảo mật. Chúng tôi áp dụng các biện pháp kỹ thuật và tổ chức phù hợp để ngăn chặn truy cập trái phép.</p>
+
+        <h3>4. Quyền của bạn</h3>
+        <ul>
+          <li>Yêu cầu xem, chỉnh sửa hoặc xóa dữ liệu cá nhân bất kỳ lúc nào</li>
+          <li>Hủy đăng ký nhận email marketing</li>
+          <li>Liên hệ: hello@bookly.com để thực hiện các quyền trên</li>
+        </ul>
+      </article>
+
+      <article id="doi-tra" class="policy-section">
+        <h2>Chính Sách Đổi Trả</h2>
+        <div class="policy-updated">Cập nhật lần cuối: 01/01/2025</div>
+
+        <h3>1. Điều kiện đổi trả</h3>
+        <p>Bookly chấp nhận đổi trả trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm thuộc một trong các trường hợp sau:</p>
+        <ul>
+          <li>Sách bị lỗi in, trang thiếu, trang bị ngược</li>
+          <li>Giao sai tựa sách, sai phiên bản so với đơn đặt</li>
+          <li>Sách bị ẩm, móp méo do quá trình vận chuyển</li>
+        </ul>
+
+        <div class="policy-highlight">⚠️ Lưu ý: Bookly không hỗ trợ đổi trả với lý do không thích nội dung hoặc sách đã được đọc/sử dụng.</div>
+
+        <h3>2. Quy trình đổi trả</h3>
+        <ul>
+          <li>Bước 1: Chụp ảnh sản phẩm lỗi và liên hệ hotline 1900 1234 hoặc email hello@bookly.com</li>
+          <li>Bước 2: Đội ngũ CSKH xác nhận trong 24 giờ làm việc</li>
+          <li>Bước 3: Gửi sách về địa chỉ 47 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</li>
+          <li>Bước 4: Bookly kiểm tra và gửi sách mới trong 3–5 ngày làm việc</li>
+        </ul>
+
+        <h3>3. Chi phí đổi trả</h3>
+        <p>Nếu lỗi do Bookly, toàn bộ phí vận chuyển đổi trả do chúng tôi chịu. Nếu lỗi do khách hàng, phí vận chuyển do khách hàng chịu.</p>
+      </article>
+
+      <article id="van-chuyen" class="policy-section">
+        <h2>Chính Sách Vận Chuyển</h2>
+        <div class="policy-updated">Cập nhật lần cuối: 01/01/2025</div>
+
+        <h3>1. Khu vực giao hàng</h3>
+        <p>Bookly giao hàng toàn quốc thông qua các đối tác vận chuyển uy tín: GHN, GHTK, Viettel Post.</p>
+
+        <h3>2. Thời gian giao hàng</h3>
+        <ul>
+          <li>Nội thành Hà Nội: 1–2 ngày làm việc</li>
+          <li>Các tỉnh thành khác: 3–5 ngày làm việc</li>
+          <li>Vùng sâu vùng xa: 5–7 ngày làm việc</li>
+        </ul>
+
+        <h3>3. Phí vận chuyển</h3>
+        <ul>
+          <li>Đơn hàng dưới 150.000đ: phí ship 30.000đ</li>
+          <li>Đơn hàng từ 150.000đ–299.000đ: phí ship 15.000đ</li>
+          <li>Đơn hàng từ 300.000đ trở lên: MIỄN PHÍ vận chuyển</li>
+        </ul>
+
+        <div class="policy-highlight">🚚 Miễn phí vận chuyển toàn quốc cho đơn hàng từ 300.000đ. Áp dụng cho tất cả sách trên Bookly, không cần mã giảm giá.</div>
+
+        <h3>4. Theo dõi đơn hàng</h3>
+        <p>Sau khi đơn hàng được xác nhận, bạn sẽ nhận được mã vận đơn qua email để theo dõi trực tiếp trên website của đơn vị vận chuyển.</p>
+      </article>
+
+      <article id="thanh-toan" class="policy-section">
+        <h2>Chính Sách Thanh Toán</h2>
+        <div class="policy-updated">Cập nhật lần cuối: 01/01/2025</div>
+
+        <h3>1. Phương thức thanh toán</h3>
+        <ul>
+          <li>Thanh toán khi nhận hàng (COD) — toàn quốc</li>
+          <li>Chuyển khoản ngân hàng — xác nhận trong 1 giờ làm việc</li>
+          <li>Ví MoMo — xác nhận tức thì</li>
+          <li>Thẻ tín dụng/ghi nợ (Visa, Mastercard) — qua cổng VNPAY</li>
+        </ul>
+
+        <h3>2. Thông tin chuyển khoản</h3>
+        <div class="policy-highlight">🏦 Ngân hàng: Vietcombank<br>Số tài khoản: 1234 5678 9012<br>Chủ tài khoản: CÔNG TY TNHH BOOKLY<br>Nội dung CK: [Mã đơn hàng] + [Họ tên]</div>
+
+        <h3>3. Xác nhận thanh toán</h3>
+        <p>Đơn hàng sẽ được xử lý ngay sau khi thanh toán được xác nhận. Với COD, đơn hàng được xác nhận ngay sau khi bạn đặt hàng thành công.</p>
+
+        <h3>4. Hóa đơn VAT</h3>
+        <p>Bookly có thể xuất hóa đơn VAT theo yêu cầu. Vui lòng cung cấp thông tin doanh nghiệp khi đặt hàng hoặc liên hệ trong vòng 24 giờ sau mua.</p>
+      </article>
+
+      <article id="dieu-khoan" class="policy-section">
+        <h2>Điều Khoản Sử Dụng</h2>
+        <div class="policy-updated">Cập nhật lần cuối: 01/01/2025</div>
+
+        <h3>1. Chấp nhận điều khoản</h3>
+        <p>Khi truy cập và sử dụng website Bookly, bạn đồng ý tuân thủ và chịu ràng buộc bởi các điều khoản và điều kiện sử dụng dưới đây.</p>
+
+        <h3>2. Tài khoản người dùng</h3>
+        <ul>
+          <li>Bạn chịu trách nhiệm bảo mật thông tin tài khoản của mình</li>
+          <li>Không chia sẻ tài khoản cho người khác sử dụng</li>
+          <li>Thông báo ngay cho Bookly nếu phát hiện tài khoản bị xâm phạm</li>
+        </ul>
+
+        <h3>3. Quyền sở hữu trí tuệ</h3>
+        <p>Toàn bộ nội dung trên website Bookly bao gồm hình ảnh, mô tả sách, logo và giao diện đều thuộc quyền sở hữu của Bookly. Nghiêm cấm sao chép, phân phối lại khi chưa có sự cho phép bằng văn bản.</p>
+
+        <h3>4. Giới hạn trách nhiệm</h3>
+        <p>Bookly không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp nào phát sinh từ việc sử dụng hoặc không thể sử dụng dịch vụ.</p>
+
+        <div class="policy-highlight">📩 Mọi thắc mắc về điều khoản sử dụng, vui lòng liên hệ:<br>Email: hello@bookly.com | Hotline: 1900 1234<br>Địa chỉ: 47 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Footer (site-footer) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">Bookly.</div>
+          <p>Điểm đến lý tưởng cho những người yêu sách. Chúng tôi cung cấp kho tàng tri thức vô tận.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-title">Đường Dẫn Nhanh</div>
+          <a href="index.html" class="footer-link">Trang chủ</a>
+          <a href="category.html" class="footer-link">Danh mục</a>
+          <a href="about.html" class="footer-link">Về chúng tôi</a>
+        </div>
+        <div class="footer-policy">
+          <div class="footer-title">Chính Sách</div>
+          <a href="chinh-sach.html#bao-mat" class="footer-link">Bảo mật</a>
+          <a href="chinh-sach.html#doi-tra" class="footer-link">Đổi trả</a>
+          <a href="chinh-sach.html#van-chuyen" class="footer-link">Vận chuyển</a>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-title">Liên Hệ</div>
+          <div class="footer-info">Email: hello@bookly.com</div>
+          <div class="footer-info">Hotline: 1900 1234</div>
+          <div class="footer-info">Địa chỉ: 47 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 Bookly. All rights reserved.</div>
+        <div>Designed with ♥ in Việt Nam</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script type="module" src="../js/main.js"></script>
+  <script>
+    // Tab switching logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.policy-tab');
+      const sections = document.querySelectorAll('.policy-section');
+
+      function activateTabByHash(hash) {
+        const targetSelector = hash || '#bao-mat';
+        const targetTab = Array.from(tabs).find(t => t.dataset.target === targetSelector);
+        if (targetTab) targetTab.click();
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          sections.forEach(s => s.classList.remove('active'));
+          tab.classList.add('active');
+          const selector = tab.dataset.target;
+          const sec = document.querySelector(selector);
+          if (sec) sec.classList.add('active');
+          // update hash without jumping
+          history.replaceState(null, '', selector);
+          // smooth scroll to content area
+          const top = document.querySelector('.policy-header').getBoundingClientRect().height + document.querySelector('.header').getBoundingClientRect().height;
+          window.scrollTo({ top: document.querySelector('.policy-header').offsetTop - document.querySelector('.header').getBoundingClientRect().height, behavior: 'smooth' });
+        });
+      });
+
+      // Activate based on hash
+      activateTabByHash(window.location.hash);
+
+      // If no hash, activate default
+      if (!window.location.hash) {
+        const first = tabs[0]; if (first) first.click();
+      }
+    });
+  </script>
+</body>
+</html>

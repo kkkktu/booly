@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Mục Sách | Bookly</title>
+    <meta name="description" content="Khám phá sách theo thể loại tại Bookly - văn học, khoa học, kinh doanh, thiếu nhi và nhiều hơn nữa.">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/bookbin-theme.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/fab.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .category-hero {
+            background: linear-gradient(135deg, var(--color-bg) 0%, #e6dace 100%);
+            padding: var(--space-xxl) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .category-title {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+        }
+        .category-count {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .filter-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-toggle-btn:hover {
+            background: #6d360f;
+            transform: translateY(-2px);
+        }
+        
+        .advanced-filter-panel {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            align-items: flex-end;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .filter-group label {
+            color: #000000;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .filter-group select,
+        .filter-group input[type="range"] {
+            padding: 8px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            color: #000000;
+            background: white;
+        }
+        
+        .filter-group select {
+            cursor: pointer;
+        }
+        
+        .filter-group input[type="range"] {
+            cursor: pointer;
+        }
+        
+        .price-range-display {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .rating-stars-filter {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .rating-stars-filter button {
+            padding: 6px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            background: white;
+            color: #000000;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .rating-stars-filter button:hover,
+        .rating-stars-filter button.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        
+        .clear-filter-btn {
+            padding: 8px 15px;
+            background: #f0f0f0;
+            color: #666;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .clear-filter-btn:hover {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        .filters-sidebar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="page-loader" style="position:fixed;inset:0;background:#fffaf3;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.4s ease;">
+        <div style="text-align:center;">
+            <div style="width:44px;height:44px;border:4px solid #e8d5b0;border-top-color:#8B5E3C;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 12px;"></div>
+            <div style="font-family:'Playfair Display',serif;color:#8B5E3C;font-size:1.1rem;font-weight:600;">Bookly.</div>
+        </div>
+    </div>
+    <script>window.addEventListener('load',()=>{const l=document.getElementById('page-loader');if(l){l.style.opacity='0';setTimeout(()=>l.style.display='none',400);}});</script>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Bookly.</a>
+            
+            <nav class="nav-links" id="nav-links">
+              <a href="index.html" class="nav-link">Trang chủ</a>
+              
+              <div class="nav-item-mega">
+                  <a href="category.html" class="nav-link" style="display:inline-flex;align-items:center;gap:4px;">Danh mục <i class="ph ph-caret-down" style="font-size:0.8rem"></i></a>
+                  <div class="mega-menu">
+                      <div class="mega-menu-inner">
+                          <div class="mega-menu-col">
+                              <h4>📚 Văn học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=tieu-thuyet">Tiểu thuyết</a></li>
+                                  <li><a href="category.html?type=truyen-ngan">Truyện ngắn</a></li>
+                                  <li><a href="category.html?type=tho-ca">Thơ ca</a></li>
+                                  <li><a href="category.html?type=van-hoc-nuoc-ngoai">Văn học nước ngoài</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>🔬 Khoa học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=vu-tru">Vũ trụ - Thiên văn</a></li>
+                                  <li><a href="category.html?type=sinh-hoc">Sinh học</a></li>
+                                  <li><a href="category.html?type=vat-ly">Vật lý</a></li>
+                                  <li><a href="category.html?type=khoa-hoc-thuong-thuc">Khoa học thường thức</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>💼 Kinh doanh</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=khoi-nghiep">Khởi nghiệp</a></li>
+                                  <li><a href="category.html?type=quan-tri">Quản trị - Lãnh đạo</a></li>
+                                  <li><a href="category.html?type=marketing">Marketing</a></li>
+                                  <li><a href="category.html?type=kinh-te-hoc">Kinh tế học</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>👶 Thiếu nhi & Khác</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=truyen-tranh">Truyện tranh</a></li>
+                                  <li><a href="category.html?type=ky-nang-song">Kỹ năng sống</a></li>
+                                  <li><a href="category.html?type=lich-su">Lịch sử thế giới</a></li>
+                                  <li><a href="category.html?type=tam-ly">Tâm lý - Self-help</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <a href="chinh-sach.html" class="nav-link">Chính sách</a>
+              <a href="about.html" class="nav-link">Giới thiệu</a>
+          </nav>
+
+            <div class="nav-actions">
+                <div class="search-wrapper" id="search-wrapper">
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
+    <button class="search-btn" id="search-btn" aria-label="Tìm kiếm">
+      <i class="ph ph-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="search-dropdown" id="search-dropdown"></div>
+</div>
+                
+                <a href="wishlist.html" class="btn-icon" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge wishlist-badge" id="wishlist-badge">0</span>
+                </a>
+                
+                <div class="cart-wrapper">
+                    <a href="cart.html" class="btn-icon" aria-label="Giỏ hàng">
+                        <i class="ph ph-shopping-cart"></i>
+                        <span class="badge cart-badge" id="cart-badge">0</span>
+                    </a>
+                    <!-- Mini cart dropdown -->
+                    <div class="mini-cart" id="mini-cart">
+                        <p class="text-center" style="font-size: 0.9rem; color: #666;">Giỏ hàng đang trống.</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-icon" aria-label="Tài khoản">
+                    <i class="ph ph-user"></i>
+                </a>
+
+                <!-- Dark/Light Mode Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Chuyển giao diện"></button>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Banner -->
+    <section class="category-hero section">
+        <div class="container">
+            <h1 class="category-title" id="cat-title">Danh Mục</h1>
+            <p class="category-count" id="cat-count">Đang tải số lượng sách...</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container section">
+        <div style="display: grid; grid-template-columns: 250px 1fr; gap: 30px;">
+            <!-- Sidebar Categories -->
+            <aside class="category-sidebar" id="category-sidebar">
+                <div class="sidebar-section">
+                    <h3 style="font-size: 1rem; margin-bottom: 15px; color: var(--color-primary); font-weight: 600;">Thể loại</h3>
+                    <div id="subcategories-list" style="display: flex; flex-direction: column; gap: 8px;">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+                    <h2 style="font-size: 1.5rem; color: var(--color-primary);">Danh sách sách</h2>
+                    <button type="button" class="filter-toggle-btn" id="filter-toggle">
+                        <i class="ph ph-faders"></i> Bộ lọc nâng cao <i class="ph ph-caret-down" style="font-size:0.75rem;"></i>
+                    </button>
+                </div>
+                
+                <!-- Advanced Filters Panel -->
+                <div class="advanced-filter-panel" id="advanced-filters" style="display: none;">
+                    <div class="filter-group">
+                        <label>Sắp xếp theo</label>
+                        <select id="sort-select">
+                            <option value="newest">Mới nhất</option>
+                            <option value="price-asc">Giá: Thấp đến Cao</option>
+                            <option value="price-desc">Giá: Cao đến Thấp</option>
+                            <option value="bestseller">Bán chạy nhất</option>
+                            <option value="rating">Đánh giá cao</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Mức giá: <span class="price-range-display" id="price-val">Tất cả</span></label>
+                        <input type="range" id="price-range" min="0" max="500000" step="10000" value="500000">
+                    </div>
+                    <div class="filter-group">
+                        <label>Đánh giá</label>
+                        <div class="rating-stars-filter" id="rating-filter">
+                            <button type="button" data-val="5">5 <i class="ph-fill ph-star"></i></button>
+                            <button type="button" data-val="4">4+ <i class="ph-fill ph-star"></i></button>
+                            <button type="button" data-val="3">3+ <i class="ph-fill ph-star"></i></button>
+                        </div>
+                    </div>
+                    <div class="filter-group" style="justify-content: flex-end;">
+                        <button type="button" class="clear-filter-btn" id="clear-filter"><i class="ph ph-x"></i> Xóa lọc</button>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid-cols-3" id="category-products-container">
+                    <!-- JS Render -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="logo">Bookly.</div>
+                        <p>Điểm đến lý tưởng cho những người yêu sách. Chúng tôi cung cấp kho tàng tri thức vô tận.</p>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-title">Đường Dẫn Nhanh</div>
+                        <a href="index.html" class="footer-link">Trang chủ</a>
+                        <a href="category.html" class="footer-link">Danh mục</a>
+                        <a href="about.html" class="footer-link">Về chúng tôi</a>
+                    </div>
+                    <div class="footer-policy">
+                        <div class="footer-title">Chính Sách</div>
+                        <a href="chinh-sach.html#bao-mat" class="footer-link">Bảo mật</a>
+                        <a href="chinh-sach.html#doi-tra" class="footer-link">Đổi trả</a>
+                        <a href="chinh-sach.html#van-chuyen" class="footer-link">Vận chuyển</a>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="footer-title">Liên Hệ</div>
+                        <div class="footer-info">Email: hello@bookly.com</div>
+                        <div class="footer-info">Hotline: 1900 1234</div>
+                        <div class="footer-info">Địa chỉ: 47 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div>© 2025 Bookly. All rights reserved.</div>
+                    <div>Designed with ♥ in Việt Nam</div>
+                </div>
+            </div>
+        </footer>
+        <!-- Toast Container -->
+        <div class="toast-container" id="toast-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/category.js"></script>
+
+</body>
+</html>

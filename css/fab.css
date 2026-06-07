@@ -1,0 +1,118 @@
+/* ============================================================
+   FAB (Floating Action Buttons) — Zalo + Điện thoại
+   Dùng chung cho toàn bộ site. Chỉ định nghĩa 1 lần ở đây.
+   ============================================================ */
+
+.float-btns {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+  z-index: 9999;
+}
+
+.fab {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
+  text-decoration: none;
+}
+
+.fab:hover {
+  transform: scale(1.12);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.24);
+}
+
+.fab-zalo { background: #0068ff; }
+.fab-phone { background: #25d366; color: #fff; }
+
+.fab svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+
+.fab-phone svg {
+  fill: currentColor;
+}
+
+.fab-tooltip {
+  position: absolute;
+  right: 62px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: rgba(20, 18, 8, 0.92);
+  color: #e8d5b0;
+  font-size: 12px;
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* about.html uses right-side tooltip style */
+.float-btns.fab-right-tooltip .fab-tooltip {
+  right: calc(100% + 12px);
+  left: auto;
+  border-radius: 999px;
+  background: rgba(5,5,5,0.92);
+  color: #fff;
+  transform: translateY(-50%) translateX(-8px);
+}
+
+.float-btns.fab-right-tooltip .fab:hover .fab-tooltip {
+  transform: translateY(-50%) translateX(0);
+}
+
+.fab:hover .fab-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Pulse ring animation */
+.pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: pulseRing 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+.fab-zalo .pulse-ring { background: rgba(0,104,255,0.4); }
+.fab-phone .pulse-ring { background: rgba(37,211,102,0.4); animation-delay: 0.6s; }
+
+@keyframes pulseRing {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* spin animation for page loader */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* Phone FAB: hover shows the number, click does nothing */
+.fab-phone {
+  cursor: default;
+}
+.fab-phone .fab-tooltip {
+  display: block !important;
+}
+.fab-phone:focus-visible {
+  outline: 2px solid #ffd166;
+  outline-offset: 4px;
+}

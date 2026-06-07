@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So sánh sách | Bookly</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/bookbin-theme.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/features.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../css/fab.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Bookly.</a>
+            
+            <nav class="nav-links" id="nav-links">
+              <a href="index.html" class="nav-link">Trang chủ</a>
+              
+              <div class="nav-item-mega">
+                  <a href="category.html" class="nav-link" style="display:inline-flex;align-items:center;gap:4px;">Danh mục <i class="ph ph-caret-down" style="font-size:0.8rem"></i></a>
+                  <div class="mega-menu">
+                      <div class="mega-menu-inner">
+                          <div class="mega-menu-col">
+                              <h4>📚 Văn học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=tieu-thuyet">Tiểu thuyết</a></li>
+                                  <li><a href="category.html?type=truyen-ngan">Truyện ngắn</a></li>
+                                  <li><a href="category.html?type=tho-ca">Thơ ca</a></li>
+                                  <li><a href="category.html?type=van-hoc-nuoc-ngoai">Văn học nước ngoài</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>🔬 Khoa học</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=vu-tru">Vũ trụ - Thiên văn</a></li>
+                                  <li><a href="category.html?type=sinh-hoc">Sinh học</a></li>
+                                  <li><a href="category.html?type=vat-ly">Vật lý</a></li>
+                                  <li><a href="category.html?type=khoa-hoc-thuong-thuc">Khoa học thường thức</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>💼 Kinh doanh</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=khoi-nghiep">Khởi nghiệp</a></li>
+                                  <li><a href="category.html?type=quan-tri">Quản trị - Lãnh đạo</a></li>
+                                  <li><a href="category.html?type=marketing">Marketing</a></li>
+                                  <li><a href="category.html?type=kinh-te-hoc">Kinh tế học</a></li>
+                              </ul>
+                          </div>
+                          <div class="mega-menu-col">
+                              <h4>👶 Thiếu nhi & Khác</h4>
+                              <ul class="mega-menu-list">
+                                  <li><a href="category.html?type=truyen-tranh">Truyện tranh</a></li>
+                                  <li><a href="category.html?type=ky-nang-song">Kỹ năng sống</a></li>
+                                  <li><a href="category.html?type=lich-su">Lịch sử thế giới</a></li>
+                                  <li><a href="category.html?type=tam-ly">Tâm lý - Self-help</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <a href="chinh-sach.html" class="nav-link">Chính sách</a>
+              <a href="about.html" class="nav-link">Giới thiệu</a>
+          </nav>
+
+            <div class="nav-actions">
+                <div class="search-wrapper" id="search-wrapper">
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
+    <button class="search-btn" id="search-btn" aria-label="Tìm kiếm">
+      <i class="ph ph-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="search-dropdown" id="search-dropdown"></div>
+</div>
+                
+                <a href="wishlist.html" class="btn-icon" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge wishlist-badge" id="wishlist-badge">0</span>
+                </a>
+                
+                <div class="cart-wrapper">
+                    <a href="cart.html" class="btn-icon" aria-label="Giỏ hàng">
+                        <i class="ph ph-shopping-cart"></i>
+                        <span class="badge cart-badge" id="cart-badge">0</span>
+                    </a>
+                    <!-- Mini cart dropdown -->
+                    <div class="mini-cart" id="mini-cart">
+                        <p class="text-center" style="font-size: 0.9rem; color: #666;">Giỏ hàng đang trống.</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn-icon" aria-label="Tài khoản">
+                    <i class="ph ph-user"></i>
+                </a>
+
+                <!-- Dark/Light Mode Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Chuyển giao diện"></button>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container compare-page-layout">
+        <h2 style="margin-bottom: var(--space-md); text-align: center;">So sánh sách</h2>
+        <div id="compare-container">
+            <!-- Render via JS -->
+            <div class="compare-empty">
+                <i class="ph ph-scales" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                <p>Bạn chưa chọn cuốn sách nào để so sánh.</p>
+                <a href="index.html" class="btn btn-primary" style="margin-top: 15px;">Quay lại trang chủ</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <!-- Footer Content -->
+        <div class="container" style="text-align: center; padding: 20px 0;">
+            <p>© 2025 Bookly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toast-container"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module">
+        import { products as allProducts } from '../js/products.js';
+        import { formatCurrency, showToast } from '../js/cart.js';
+        import { getCurrentUser } from '../js/auth.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = getCurrentUser();
+            const compareKey = user?.id ? `bookly_compare_user_${user.id}` : 'bookly_compare';
+            const compareList = JSON.parse(localStorage.getItem(compareKey)) || [];
+            const container = document.getElementById('compare-container');
+            
+            if (compareList.length === 0) return;
+            
+            const compareBooks = compareList.map(id => allProducts.find(p => p.id === id)).filter(Boolean);
+            
+            if (compareBooks.length === 0) return;
+
+            let html = `
+                <div style="overflow-x: auto;">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Tiêu chí</th>
+                                ${compareBooks.map(b => `
+                                    <th style="text-align: center;">
+                                        <div class="compare-book-header">
+                                            <img src="${b.cover}" alt="${b.title}" style="margin: 0 auto 10px; display: block; max-width: 120px; box-shadow: var(--shadow-sm);">
+                                            <h4 style="font-size: 1rem; margin-bottom: 5px;">${b.title}</h4>
+                                            <button class="remove-compare-btn" data-id="${b.id}" style="background: none; border: none; color: var(--color-danger); cursor: pointer; font-size: 0.8rem; text-decoration: underline;">Xóa khỏi danh sách</button>
+                                        </div>
+                                    </th>
+                                `).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tác giả</strong></td>
+                                ${compareBooks.map(b => `<td>${b.author}</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td><strong>Thể loại</strong></td>
+                                ${compareBooks.map(b => `<td>${b.category}</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td><strong>Giá</strong></td>
+                                ${compareBooks.map(b => `
+                                    <td>
+                                        <div style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem;">${formatCurrency(b.price)}</div>
+                                    </td>
+                                `).join('')}
+                            </tr>
+                            <tr>
+                                <td><strong>Đánh giá</strong></td>
+                                ${compareBooks.map(b => `
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            <i class="ph-fill ph-star" style="color: #ffd166;"></i>
+                                            <span style="font-weight: 600;">${b.rating}</span>
+                                        </div>
+                                    </td>
+                                `).join('')}
+                            </tr>
+                            <tr>
+                                <td><strong>Đã bán</strong></td>
+                                ${compareBooks.map(b => `<td>${b.sold.toLocaleString('vi-VN')} cuốn</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td><strong>Kho</strong></td>
+                                ${compareBooks.map(b => `<td>${b.stock} cuốn</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td><strong>Hành động</strong></td>
+                                ${compareBooks.map(b => `
+                                    <td style="text-align: center;">
+                                        <a href="product-detail.html?id=${b.id}" class="btn btn-outline" style="padding: 6px 12px; font-size: 0.85rem;">Xem chi tiết</a>
+                                    </td>
+                                `).join('')}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+
+            document.querySelectorAll('.remove-compare-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(e.target.dataset.id);
+                    const newList = compareList.filter(item => item !== id);
+                    localStorage.setItem(compareKey, JSON.stringify(newList));
+                    showToast('Đã xóa khỏi danh sách so sánh');
+                    setTimeout(() => window.location.reload(), 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Footer styles for Bookly theme */
+.site-footer {
+  background: #111111;
+  color: #FFFFFF;
+  padding: 64px 80px 32px;
+  font-family: 'Inter', sans-serif;
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
+}
+.footer-brand .logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  max-width: 220px;
+}
+.footer-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+.footer-link {
+  display: block;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 2.4;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: #FFFFFF; }
+.footer-info {
+  display: block;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  line-height: 2.4;
+}
+.footer-bottom {
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .site-footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 767px) {
+  .site-footer { padding: 48px 24px 24px; }
+  .site-footer .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}

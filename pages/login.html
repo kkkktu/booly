@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập | Bookly</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/bookbin-theme.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .auth-container {
+            max-width: 620px;
+            margin: 95px auto 120px;
+            padding: 3.6rem 4rem;
+            background: rgba(10, 10, 10, 0.88);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            color: #ffffff;
+        }
+        .auth-tabs {
+            display: flex;
+            margin-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: var(--space-sm);
+            cursor: pointer;
+            font-weight: 600;
+            color: rgba(255,255,255,0.68);
+            transition: all 0.3s ease;
+        }
+        .auth-tab.active {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+        }
+        .auth-form {
+            display: none;
+        }
+        .auth-form.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.98rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 15px 48px 15px 16px;
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            background: #ffffff;
+            color: #222222;
+        }
+        .form-group input::placeholder { color: #888888; }
+        .auth-container .btn-primary,
+        .auth-container .btn-secondary {
+            min-height: 46px;
+            border-radius: 999px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+        .auth-container .btn-primary {
+            background: linear-gradient(135deg, #ffd166, #ff9f1c) !important;
+            color: #111111 !important;
+        }
+        .auth-container .btn-secondary {
+            background: transparent !important;
+            color: #ffd166 !important;
+            border: 1px solid rgba(255,209,102,0.65) !important;
+        }
+        .forgot-password-btn {
+            display: block;
+            margin-left: auto;
+            margin-top: -8px;
+            margin-bottom: var(--space-md);
+            background: none;
+            border: none;
+            color: #ffd166;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .password-field {
+            position: relative;
+        }
+        .password-field input {
+            padding-right: 52px !important;
+        }
+        .password-toggle-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #333;
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+        }
+        .password-toggle-btn:hover { color: #000; }
+        @media (max-width: 640px) {
+            .auth-container { max-width: calc(100vw - 32px); padding: 2.4rem 1.4rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link rel="stylesheet" href="../css/fab.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header" style="background: var(--color-white); border-bottom: 1px solid var(--color-border);">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Bookly.</a>
+            <a href="index.html" style="color: var(--color-text); text-decoration: none; font-weight: 500;">
+                <i class="ph ph-arrow-left" style="vertical-align: middle; margin-right: 5px;"></i> Quay lại trang chủ
+            </a>
+        </div>
+    </header>
+    <div class="mega-menu-overlay"></div>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <div class="auth-tab active" data-target="login-form">Đăng nhập</div>
+                        <div class="auth-tab" data-target="register-form">Đăng ký</div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form active">
+                        <div class="form-group">
+                            <label for="login-account">Tên đăng nhập</label>
+                            <input type="text" id="login-account" required placeholder="Nhập tên đăng nhập">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Mật khẩu</label>
+                            <div class="password-field">
+                                <input type="password" id="login-password" required placeholder="••••••••">
+                                <button type="button" class="password-toggle-btn" data-target="login-password" aria-label="Hiện mật khẩu"><i class="ph ph-eye"></i></button>
+                            </div>
+                        </div>
+                        <button type="button" class="forgot-password-btn" title="Chức năng đang phát triển">Quên mật khẩu?</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Đăng nhập</button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-name">Họ và tên</label>
+                            <input type="text" id="register-name" required placeholder="Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-username">Tên đăng nhập</label>
+                            <input type="text" id="register-username" required placeholder="nhap_ten_dang_nhap">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required placeholder="nhap@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-phone">Số điện thoại</label>
+                            <input type="tel" id="register-phone" required placeholder="Nhập số điện thoại" pattern="0[0-9]{9,10}" title="Vui lòng nhập số điện thoại 10 hoặc 11 chữ số bắt đầu bằng số 0">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Mật khẩu</label>
+                            <div class="password-field">
+                                <input type="password" id="register-password" required placeholder="Tối thiểu 6 ký tự" minlength="6">
+                                <button type="button" class="password-toggle-btn" data-target="register-password" aria-label="Hiện mật khẩu"><i class="ph ph-eye"></i></button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Tạo tài khoản</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="logo">Bookly.</div>
+                        <p>Điểm đến lý tưởng cho những người yêu sách. Chúng tôi cung cấp kho tàng tri thức vô tận.</p>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-title">Đường Dẫn Nhanh</div>
+                        <a href="index.html" class="footer-link">Trang chủ</a>
+                        <a href="category.html" class="footer-link">Danh mục</a>
+                        <a href="about.html" class="footer-link">Về chúng tôi</a>
+                    </div>
+                    <div class="footer-policy">
+                        <div class="footer-title">Chính Sách</div>
+                        <a href="chinh-sach.html#bao-mat" class="footer-link">Bảo mật</a>
+                        <a href="chinh-sach.html#doi-tra" class="footer-link">Đổi trả</a>
+                        <a href="chinh-sach.html#van-chuyen" class="footer-link">Vận chuyển</a>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="footer-title">Liên Hệ</div>
+                        <div class="footer-info">Email: hello@bookly.com</div>
+                        <div class="footer-info">Hotline: 1900 1234</div>
+                        <div class="footer-info">Địa chỉ: 47 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div>© 2025 Bookly. All rights reserved.</div>
+                    <div>Designed with ♥ in Việt Nam</div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
